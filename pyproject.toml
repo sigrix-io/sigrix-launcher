@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sigrix-launcher"
+version = "0.1.0"
+description = "Start a Sigrix-delivered MCP server you bought from the MCP client you already use: checks the purchase, fetches and verifies the package, installs it and hands over stdio."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+authors = [{ name = "Sigrix" }]
+keywords = ["mcp", "model-context-protocol", "sigrix", "postern", "claude-code"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+# Standard library only, like the runner code it carries: the launcher is
+# started by `uvx` on every client start, and nothing here needs more.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+sigrix-launcher = "sigrix_launcher.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sigrix-io/sigrix-launcher"
+Issues = "https://github.com/sigrix-io/sigrix-launcher/issues"
+Changelog = "https://github.com/sigrix-io/sigrix-launcher/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sigrix_launcher"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/sigrix_launcher", "tests", "README.md", "LICENSE", "NOTICE", "CHANGELOG.md"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+# Vendored from the Postern reference runner and linted there; a change to it
+# belongs upstream, never here (see the header of each file).
+extend-exclude = ["src/sigrix_launcher/_postern"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# S105 and S108 are the fixtures' fake token and fake cache path, which
+# name nothing real.
+"tests/*" = ["S101", "S105", "S108", "S603", "S607"]
+"src/sigrix_launcher/installer.py" = ["S603"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
