@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sigrix-launcher"
-version = "0.1.0"
+version = "0.1.1"
 description = "Start a Sigrix-delivered MCP server you bought from the MCP client you already use: checks the purchase, fetches and verifies the package, installs it and hands over stdio."
 readme = "README.md"
 license = "Apache-2.0"

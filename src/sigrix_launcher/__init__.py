@@ -24,7 +24,7 @@ rotated token is a new question rather than an old answer.
 
 from sigrix_runtime.postern.entitlement import DELIVERY_MODE_CONNECTOR_LOCAL
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 #: The file beside the wheel in a served package, and the only two values of it
 #: this launcher can read. A newer format is refused by name rather than guessed

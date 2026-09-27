@@ -6,6 +6,8 @@ described in `VERSIONING.md`.
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-09-27
+
 ### Changed
 
 - The purchase check and the verified download come from the `sigrix-runtime`
