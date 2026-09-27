@@ -12,9 +12,11 @@ it stays one: check the purchase, fetch and verify, install, hand over stdio.
 
 ## What does not
 
-- A second implementation of anything in `src/sigrix_launcher/_postern/`. That
-  is the Postern reference runner's client code, copied in; a change to how an
-  entitlement is decided or a download verified belongs upstream.
+- A second implementation of anything the launcher imports from
+  `sigrix_runtime.postern`. That is the Postern runner's own client code, from
+  the `sigrix-runtime` package; a change to how an entitlement is decided or a
+  download verified belongs in `sigrix-io/sigrix-runtime`, and reaches buyers
+  when a release here moves the pin.
 - Anything that runs while the seller's server runs. The launcher checks at
   start and then gets out of the way.
 - Output on stdout. It is the MCP connection; everything else goes to stderr.

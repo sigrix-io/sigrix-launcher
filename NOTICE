@@ -3,11 +3,6 @@ Copyright 2026 Sigrix
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 
-src/sigrix_launcher/_postern/ is a copy of the Postern reference runner's
-client code (the entitlement check, the verified download and the transport
-they share), under the same licence. It is changed upstream and copied here,
-never edited in place.
-
 Trademarks. "Sigrix" and the Sigrix logo are trademarks of Sigrix. The Apache
 License does not grant permission to use them. The name of this repository and
 package identifies the marketplace the launcher fetches from; it does not imply

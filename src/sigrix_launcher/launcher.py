@@ -33,11 +33,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from sigrix_runtime.postern import PATH_PREFIX, pull
+from sigrix_runtime.postern.describe import AGENT_ID_SHAPE, is_agent_id
+from sigrix_runtime.postern.entitlement import DEFAULT_DISTRIBUTOR, GATE_NOT_ENTITLED, GATE_UNAVAILABLE, Entitlement
+from sigrix_runtime.postern.transport import TransportError, open_response
+
 from sigrix_launcher import DELIVERY_MODE, MANIFEST_FILENAME, MANIFEST_KIND, SUPPORTED_MANIFEST_FORMAT
-from sigrix_launcher._postern import PATH_PREFIX, pull
-from sigrix_launcher._postern.describe import AGENT_ID_SHAPE, is_agent_id
-from sigrix_launcher._postern.entitlement import DEFAULT_DISTRIBUTOR, GATE_NOT_ENTITLED, GATE_UNAVAILABLE, Entitlement
-from sigrix_launcher._postern.transport import TransportError, open_response
 from sigrix_launcher.installer import Installer, InstallError, console_script
 
 #: The three variables the launcher reads. The token is the one on the buyer's

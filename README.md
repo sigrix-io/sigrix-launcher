@@ -9,7 +9,7 @@ Some Sigrix listings are delivered by Sigrix rather than installed from a public
 3. installs it into an environment of its own, once per version;
 4. starts the seller's server on its own stdio, so your client talks to the server directly.
 
-It speaks [Postern](https://github.com/sigrix-io/postern), the open protocol for checking a purchase and fetching what was bought, using the protocol's reference client code.
+It speaks [Postern](https://github.com/sigrix-io/postern), the open protocol for checking a purchase and fetching what was bought, through the client code of the runner every Sigrix bundle carries, [`sigrix-runtime`](https://github.com/sigrix-io/sigrix-runtime).
 
 ## Configure your client
 
@@ -81,7 +81,7 @@ pip install -e ".[dev]"
 ruff check . && ruff format --check . && pytest
 ```
 
-The tests run a distributor on loopback and, for one of them, install a real wheel and talk to the started server over a real pipe. `src/sigrix_launcher/_postern/` is a copy of the Postern reference runner's client code; change it upstream, never here.
+The tests run a distributor on loopback and, for one of them, install a real wheel and talk to the started server over a real pipe. The purchase check and the verified download are [`sigrix-runtime`](https://github.com/sigrix-io/sigrix-runtime)'s, pinned exactly in `pyproject.toml`: a change to either is made there, and reaches buyers when a release here moves the pin.
 
 ## Licence
 

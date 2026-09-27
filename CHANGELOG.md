@@ -6,6 +6,16 @@ described in `VERSIONING.md`.
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-09-27
+
+### Changed
+
+- The purchase check and the verified download come from the `sigrix-runtime`
+  package, pinned at 0.1.0, instead of a copy of its client code carried in
+  `sigrix_launcher._postern`. Its code is the copy's, so nothing a buyer sees
+  changes; a start now installs that one package beside the launcher, and it
+  has no dependencies of its own.
+
 ## [0.1.0] — 2026-09-23
 
 First release, reading package format `1`.

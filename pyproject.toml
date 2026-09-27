@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sigrix-launcher"
-version = "0.1.0"
+version = "0.1.1"
 description = "Start a Sigrix-delivered MCP server you bought from the MCP client you already use: checks the purchase, fetches and verifies the package, installs it and hands over stdio."
 readme = "README.md"
 license = "Apache-2.0"
@@ -22,9 +22,16 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-# Standard library only, like the runner code it carries: the launcher is
-# started by `uvx` on every client start, and nothing here needs more.
-dependencies = []
+# The purchase check and the verified download are the Postern runner's own
+# client code, from `sigrix-runtime` (sigrix-io/sigrix-runtime). It has no
+# dependencies of its own, so a `uvx` start, which happens on every client
+# start, still installs nothing beyond the two packages.
+#
+# Pinned exactly, not to the minor its VERSIONING.md suggests for code built
+# on it: the launcher calls helpers in its `pull` module that no version
+# promise covers. A runtime release reaches buyers through a launcher release
+# whose tests ran against it, as it did while the launcher carried a copy.
+dependencies = ["sigrix-runtime==0.1.0"]
 
 [project.optional-dependencies]
 dev = [
@@ -49,9 +56,6 @@ include = ["src/sigrix_launcher", "tests", "README.md", "LICENSE", "NOTICE", "CH
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-# Vendored from the Postern reference runner and linted there; a change to it
-# belongs upstream, never here (see the header of each file).
-extend-exclude = ["src/sigrix_launcher/_postern"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "S"]
