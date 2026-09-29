@@ -8,6 +8,15 @@ described in `VERSIONING.md`.
 
 ### Added
 
+- The package is typed: it ships `py.typed`, so a type checker reads its
+  annotations, and CI checks them with `mypy --strict`. Two annotations were
+  tightened to pass, and the file lock on Windows is chosen by `sys.platform`
+  rather than `os.name`, which agree on every CPython; nothing a buyer runs
+  behaves differently.
+- Each release is installed back from PyPI by name after it is published, and
+  the run fails if that version never arrives, reports another version, lacks
+  `py.typed`, or its `sigrix-launcher` command does not answer with it. The
+  build job runs the same checks against the wheel before the upload.
 - `CODE_OF_CONDUCT.md`, issue forms and a pull request template, the set the
   other open repositories carry. Blank issues are off: a report is a defect or
   a change, and the links beside the forms send a security report to

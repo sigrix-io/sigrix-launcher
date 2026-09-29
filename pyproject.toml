@@ -37,6 +37,7 @@ dependencies = ["sigrix-runtime==0.1.0"]
 dev = [
     "pytest>=8",
     "ruff>=0.6",
+    "mypy==2.3.1",
 ]
 
 [project.scripts]
@@ -69,6 +70,15 @@ ignore = ["E501"]
 # name nothing real.
 "tests/*" = ["S101", "S105", "S108", "S603", "S607"]
 "src/sigrix_launcher/installer.py" = ["S603"]
+
+# py.typed ships in the wheel, which tells every consumer's type checker to
+# trust these annotations, so they are checked as strictly as the other Sigrix
+# packages check theirs.
+[tool.mypy]
+strict = true
+python_version = "3.11"
+files = ["src/sigrix_launcher"]
+mypy_path = "src"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

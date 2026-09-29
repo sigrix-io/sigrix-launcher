@@ -33,7 +33,7 @@ class InstallError(RuntimeError):
     """An environment could not be built; ``str()`` says why, with the installer's words."""
 
 
-Runner = Callable[..., subprocess.CompletedProcess]
+Runner = Callable[..., subprocess.CompletedProcess[bytes]]
 
 
 def environment_python(env_dir: Path) -> Path:

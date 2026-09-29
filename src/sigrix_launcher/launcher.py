@@ -350,7 +350,7 @@ def _read_manifest(archive: zipfile.ZipFile, info: zipfile.ZipInfo) -> dict[str,
             f"{SUPPORTED_MANIFEST_FORMAT}. Update the launcher: write sigrix-launcher@latest in place of "
             "sigrix-launcher in this server's configuration, then start it again."
         )
-    checks = {
+    checks: dict[str, Callable[[str], bool]] = {
         "name": lambda value: bool(value.strip()),
         "version": lambda value: bool(_SAFE_VERSION.fullmatch(value)),
         "entry_point": lambda value: bool(_SAFE_SCRIPT.fullmatch(value)),
@@ -473,7 +473,10 @@ def _locked(path: Path) -> Iterator[None]:
     """An exclusive lock on one file, held for the block, on either platform."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a+b") as handle:
-        if os.name == "nt":
+        # `sys.platform`, not `os.name`: the two agree on every CPython, and this
+        # is the spelling a type checker reads, so each branch is checked only
+        # against the platform whose module it imports.
+        if sys.platform == "win32":
             import msvcrt
 
             while True:
