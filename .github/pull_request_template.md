@@ -30,5 +30,6 @@ what you broke and which test caught it.
 - [ ] `pytest`
 - [ ] `ruff check .`
 - [ ] `ruff format --check .`
+- [ ] `mypy`
 - [ ] Nothing new on stdout, which is the MCP connection
 - [ ] `CHANGELOG.md` has a line under *Unreleased*

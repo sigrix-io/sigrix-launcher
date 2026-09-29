@@ -78,7 +78,7 @@ Everything is under one folder: `~/.cache/sigrix-launcher` on Linux, `~/Library/
 
 ```sh
 pip install -e ".[dev]"
-ruff check . && ruff format --check . && pytest
+ruff check . && ruff format --check . && mypy && pytest
 ```
 
 The tests run a distributor on loopback and, for one of them, install a real wheel and talk to the started server over a real pipe. The purchase check and the verified download are [`sigrix-runtime`](https://github.com/sigrix-io/sigrix-runtime)'s, pinned exactly in `pyproject.toml`: a change to either is made there, and reaches buyers when a release here moves the pin.

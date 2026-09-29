@@ -26,7 +26,7 @@ it stays one: check the purchase, fetch and verify, install, hand over stdio.
 ```sh
 python -m venv .venv && . .venv/bin/activate
 pip install -e ".[dev]"
-ruff check . && ruff format --check . && pytest
+ruff check . && ruff format --check . && mypy && pytest
 ```
 
 The tests run a distributor on loopback, so they need no network; the one that
