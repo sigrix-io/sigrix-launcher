@@ -1,0 +1,45 @@
+name: Change
+description: You want the launcher to do something it does not.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        The launcher checks the purchase, fetches and verifies, installs, and
+        hands over stdio, and the bar for a change is that it stays that small.
+        How an entitlement is decided or a download verified belongs to
+        [`sigrix-runtime`](https://github.com/sigrix-io/sigrix-runtime), and
+        nothing runs while the seller's server runs. See
+        [CONTRIBUTING.md](https://github.com/sigrix-io/sigrix-launcher/blob/main/CONTRIBUTING.md)
+        for what fits.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What goes wrong today
+      description: >-
+        Describe the situation, not the feature: the client, the platform, what
+        the launcher did, and what that cost you.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What you do instead right now
+      description: >-
+        A wrapper script, a manual install, a variable you set around it.
+    validations:
+      required: false
+  - type: dropdown
+    id: configuration
+    attributes:
+      label: Would buyers have to change their client configuration?
+      description: >-
+        Every buyer's configuration names this package and its command line,
+        so changing either is a breaking change for all of them
+        (VERSIONING.md).
+      options:
+        - No, it works with the configuration buyers already have
+        - Yes, it changes the command line or a variable
+        - Not sure
+    validations:
+      required: true

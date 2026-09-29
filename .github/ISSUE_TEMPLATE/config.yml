@@ -1,0 +1,31 @@
+# The two forms alongside this file are the two kinds of report CONTRIBUTING.md
+# treats differently: a start that goes wrong, and a change. A blank issue would
+# let that sorting be skipped, and the links below catch the reports that
+# belong somewhere else.
+blank_issues_enabled: false
+
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/sigrix-io/sigrix-launcher/security/policy
+    about: >-
+      Do not open a public issue. Email security@sigrix.io, acknowledged within
+      three working days. The launcher holds a buyer's token and installs a
+      seller's code on their machine, so a way to reach either is in scope.
+  - name: Raise a code of conduct concern
+    url: https://github.com/sigrix-io/sigrix-launcher/blob/main/CODE_OF_CONDUCT.md
+    about: >-
+      Email conduct@sigrix.io. A different address and a different queue from
+      security reports; neither is a fallback for the other.
+  - name: How a purchase is checked, or a download verified
+    url: https://github.com/sigrix-io/sigrix-runtime/issues
+    about: >-
+      That is the Postern runner's client code, which this launcher imports
+      from sigrix-runtime. A change to it is made there, and reaches buyers
+      when a release here moves the pin.
+  - name: A listing, a purchase, or what a seller's server does
+    url: https://sigrix.io
+    about: >-
+      Whether a token owns a listing, a refund, a version still in review, or a
+      server doing something its listing does not disclose: those are reports
+      about the listing, not this launcher. Use the report link on the
+      listing's page.

@@ -1,0 +1,54 @@
+name: Defect
+description: A start goes wrong in the purchase check, the download, the install, or the handover to the seller's server.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        **Never paste your `SIGRIX_TOKEN`.** Replace it with
+        `YOUR_SIGRIX_TOKEN` in anything you attach, a client configuration
+        included. Everything below is public the moment you press submit, and
+        a token is enough to start whatever it covers. If what you are about to
+        paste shows the launcher writing a token somewhere, that is a
+        vulnerability: email security@sigrix.io instead of filing it here.
+  - type: textarea
+    id: command
+    attributes:
+      label: How your client starts the launcher
+      description: >-
+        The command and its arguments, or the server's entry in your client's
+        configuration, with the token replaced. Name any other variable you set
+        (`SIGRIX_LAUNCHER_HOME`, `POSTERN_DISTRIBUTOR`), not its value.
+      render: shell
+      placeholder: "uvx sigrix-launcher run <seller>/<listing-id>"
+    validations:
+      required: true
+  - type: textarea
+    id: stderr
+    attributes:
+      label: What it printed on stderr
+      description: >-
+        When the launcher stops, it says why in one sentence on stderr, and
+        your client shows that in the server's log. Paste that line and
+        anything around it.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: >-
+        For example: the purchase is current and the server should have
+        started, or the machine was offline and a version already installed
+        should have started.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: sigrix-launcher, Python, the operating system, uvx or pipx, and the MCP client.
+      placeholder: "sigrix-launcher 0.1.1, Python 3.12, Windows 11, uvx, Claude Desktop"
+    validations:
+      required: true
