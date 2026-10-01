@@ -1,5 +1,10 @@
 # sigrix-launcher
 
+[![PyPI](https://img.shields.io/pypi/v/sigrix-launcher)](https://pypi.org/project/sigrix-launcher/)
+[![Python](https://img.shields.io/pypi/pyversions/sigrix-launcher)](https://pypi.org/project/sigrix-launcher/)
+[![CI](https://github.com/sigrix-io/sigrix-launcher/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sigrix-io/sigrix-launcher/actions/workflows/ci.yml)
+[![Licence](https://img.shields.io/github/license/sigrix-io/sigrix-launcher)](https://github.com/sigrix-io/sigrix-launcher/blob/main/LICENSE)
+
 Start an MCP server you bought on [Sigrix](https://sigrix.io) from the client you already use — Claude Code, Claude Desktop, Cursor, or any MCP client that starts a server over stdio.
 
 Some Sigrix listings are delivered by Sigrix rather than installed from a public registry: the seller's server is a package only its buyers can download. This launcher is what your client starts for one. On every start it:
@@ -73,6 +78,15 @@ Everything is under one folder: `~/.cache/sigrix-launcher` on Linux, `~/Library/
 | `SIGRIX_TOKEN` | Required. A runner token for this listing, from the plugins page. |
 | `SIGRIX_LAUNCHER_HOME` | Optional. Where installed versions are kept. |
 | `POSTERN_DISTRIBUTOR` | Optional; defaults to `https://sigrix.io`. For testing against another distributor. Plain `http://` is accepted only to a loopback address. |
+
+## Where it fits
+
+sigrix-launcher is one of the open-source projects [Sigrix](https://sigrix.io) publishes, and the buyer's end of an MCP server sold there. Its neighbours:
+
+- **[sigrix-runtime](https://github.com/sigrix-io/sigrix-runtime)**, the runner inside every bundle Sigrix delivers. The purchase check and the verified download here are its client code, so a buyer who bought a whole agent rather than an MCP server meets the same check through it.
+- **[Postern](https://github.com/sigrix-io/postern)**, the open protocol both speak to Sigrix: four HTTP verbs, and a per-agent check that whoever is running an agent is allowed to.
+
+Every project Sigrix publishes, and a map of how they connect: [sigrix.io/open-source](https://sigrix.io/open-source).
 
 ## Development
 

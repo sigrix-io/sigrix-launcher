@@ -25,6 +25,12 @@ described in `VERSIONING.md`.
 
 ### Changed
 
+- The README opens with badges for the PyPI release, the Python versions, CI
+  and the licence, and a new *Where it fits* section names the projects a
+  start passes through: sigrix-runtime, whose client code checks the
+  purchase, and Postern, the protocol it speaks. The README is the PyPI page
+  too, so the next release carries it there. Nothing a buyer sees at a start
+  changes.
 - Dependabot opens one pull request per ecosystem instead of one per
   dependency. The branch ruleset only merges a pull request that is up to date
   with `main`, so each separate update merged put every other one behind.
