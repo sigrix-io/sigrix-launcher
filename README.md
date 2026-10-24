@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sigrix-io/sigrix-launcher/main/.github/assets/logo-on-dark.svg">
+    <img src="https://raw.githubusercontent.com/sigrix-io/sigrix-launcher/main/.github/assets/logo.svg" alt="sigrix-launcher" width="120">
+  </picture>
+</p>
+
 # sigrix-launcher
 
 [![PyPI](https://img.shields.io/pypi/v/sigrix-launcher)](https://pypi.org/project/sigrix-launcher/)
