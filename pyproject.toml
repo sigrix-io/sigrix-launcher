@@ -31,7 +31,7 @@ classifiers = [
 # on it: the launcher calls helpers in its `pull` module that no version
 # promise covers. A runtime release reaches buyers through a launcher release
 # whose tests ran against it, as it did while the launcher carried a copy.
-dependencies = ["sigrix-runtime==0.1.0"]
+dependencies = ["sigrix-runtime==0.2.0"]
 
 [project.optional-dependencies]
 dev = [
